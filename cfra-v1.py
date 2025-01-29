@@ -2,12 +2,12 @@ import os
 import time
 import requests
 import json
-import random
 from rich.console import Console
 from rich.panel import Panel
 from rich.text import Text
 from rich.markdown import Markdown
 from rich.live import Live
+from rich.spinner import Spinner
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 
 # Initialize Rich console for formatted output
@@ -15,7 +15,8 @@ console = Console()
 
 # Configurable parameters
 COST_THRESHOLD = 15  # Maximum number of API calls allowed
-TIME_LIMIT = 600  # Maximum time allowed for problem-solving (in seconds)
+TIME_LIMIT = 1200  # Increased time limit to 20 minutes (1200 seconds)
+MAX_SCENARIOS = 3  # Maximum number of scenarios to generate and evaluate
 
 # Global counters
 api_call_count = 0
@@ -80,17 +81,15 @@ class CounterfactualAgent:
     def stream_response(self, response):
         """Stream the response from the LLM API."""
         full_response = ""
-        with Live(refresh_per_second=15) as live:
-            for chunk in response.iter_lines():
-                if chunk:
-                    try:
-                        chunk_data = self.validate_json(chunk)
-                        chunk_content = chunk_data.get("response", "")
-                        full_response += chunk_content
-                        live.update(Panel(Markdown(full_response)))
-                    except (json.JSONDecodeError, KeyError):
-                        self.log("Retrying due to invalid JSON response...", style="bold yellow")
-                        raise
+        for chunk in response.iter_lines():
+            if chunk:
+                try:
+                    chunk_data = self.validate_json(chunk)
+                    chunk_content = chunk_data.get("response", "")
+                    full_response += chunk_content
+                except (json.JSONDecodeError, KeyError):
+                    self.log("Retrying due to invalid JSON response...", style="bold yellow")
+                    raise
         return full_response
 
     def generate_scenarios(self):
@@ -99,12 +98,12 @@ class CounterfactualAgent:
         You are a reasoning agent. The question is:
         {self.question}
 
-        Generate a list of 'what-if' scenarios to explore alternative outcomes. Include logical assumptions and clear hypotheses.
+        Generate a list of {MAX_SCENARIOS} 'what-if' scenarios to explore alternative outcomes. Include logical assumptions and clear hypotheses.
         """
         try:
             response = self.call_llm(prompt)
             full_response = self.stream_response(response)
-            self.scenarios = full_response.split("\n")
+            self.scenarios = full_response.split("\n")[:MAX_SCENARIOS]  # Limit scenarios
         except Exception as e:
             self.log(f"Error generating scenarios: {e}", style="bold red")
 
@@ -123,29 +122,58 @@ class CounterfactualAgent:
         except Exception as e:
             self.log(f"Error evaluating scenario: {e}", style="bold red")
 
+    def summarize_recommendation(self):
+        """Summarize the evaluations into a final recommendation."""
+        if not self.results:
+            return "No valid scenarios were evaluated."
+
+        # Combine all evaluations into a single prompt for summarization
+        combined_evaluations = "\n".join([result["evaluation"] for result in self.results])
+        prompt = f"""
+        You are a reasoning agent. Below are the evaluations of multiple scenarios:
+        {combined_evaluations}
+
+        Summarize the key insights and provide a clear, actionable recommendation based on the analysis.
+        """
+        try:
+            response = self.call_llm(prompt)
+            full_response = self.stream_response(response)
+            return full_response
+        except Exception as e:
+            self.log(f"Error summarizing recommendation: {e}", style="bold red")
+            return "Failed to generate a recommendation."
+
     def explore_counterfactuals(self):
         """Explore all generated counterfactual scenarios."""
-        self.log_markdown(f"## Exploring Counterfactuals for Question: {self.question}")
         self.generate_scenarios()
 
-        for scenario in self.scenarios:
-            if scenario.strip():
-                self.evaluate_scenario(scenario)
+        # Show a progress indicator while evaluating scenarios
+        with Live(Spinner("dots"), refresh_per_second=15) as live:
+            live.update(Panel(Text("Generating scenarios...", style="bold blue")))
+            for i, scenario in enumerate(self.scenarios):
+                if scenario.strip():
+                    live.update(Panel(Text(f"Evaluating scenario {i + 1}/{len(self.scenarios)}: {scenario}", style="bold green")))
+                    self.evaluate_scenario(scenario)
 
-    def display_results(self):
-        """Display all counterfactual evaluations."""
-        self.log_markdown("# Final Counterfactual Analysis")
-        for result in self.results:
-            scenario = result["scenario"]
-            evaluation = result["evaluation"]
-            self.log_markdown(f"### Scenario: {scenario}\n#### Evaluation:\n{evaluation}")
+    def display_final_recommendation(self):
+        """Display only the final recommendation."""
+        recommendation = self.summarize_recommendation()
+        self.log_markdown("# Final Recommendation")
+        self.log_markdown(recommendation)
 
 # Main function to run the counterfactual agent
 def main():
     question = "What if we increase the marketing budget by 20% for our new product launch?"
     agent = CounterfactualAgent(question)
+
+    # Start the timer
+    start_time = time.time()
     agent.explore_counterfactuals()
-    agent.display_results()
+    elapsed_time = time.time() - start_time
+
+    # Display the final recommendation and elapsed time
+    agent.display_final_recommendation()
+    agent.log(f"Time taken: {elapsed_time:.2f} seconds", style="bold green")
 
 if __name__ == "__main__":
     main()
