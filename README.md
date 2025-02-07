@@ -22,7 +22,7 @@ StellisLabs-Agents <br>
 **logger.py:** Logging setup and management <br>
 **config.py:** Configuration constants and settings <br>
 
-## ** ✨ Features**
+## ✨ Features
 
 - Generate multiple "what-if" scenarios for a given question
 - Evaluate each scenario using logical reasoning and probabilistic models
