@@ -5,13 +5,13 @@ A sophisticated Python-based agent that explores and evaluates "what-if" scenari
 StellisLabs-Agents <br> 
  ├── Yamini Manral <br>
  │ ├── counterfactual_agent/ <br>
- │ ├──── agent.py        # Main agent implementation <br>
- │ ├──── main.py         # Entry point of the application <br>
- │ ├──── utils.py        # Utility functions <br>
- │ ├──── scenario.py     # Scenario generation and handling <br>
- │ ├──── llm_api.py      # LLM API interaction layer <br>
- │ ├──── logger.py       # Logging configuration <br>
- │ └──── config.py       # Configuration settings <br>
+ │ ├──── agent.py        <br>
+ │ ├──── main.py         <br>
+ │ ├──── utils.py        <br>
+ │ ├──── scenario.py      <br>
+ │ ├──── llm_api.py       <br>
+ │ ├──── logger.py       <br>
+ │ └──── config.py       <br>
  ├── README.md <br>
 
 **agent.py**: Core CounterfactualAgent class implementation <br>
