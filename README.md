@@ -23,7 +23,6 @@ StellisLabs-Agents <br>
 **config.py:** Configuration constants and settings <br>
 
 ## ✨ Features
-
 - Generate multiple "what-if" scenarios for a given question
 - Evaluate each scenario using logical reasoning and probabilistic models
 - Stream responses from LLM API with proper error handling
@@ -33,25 +32,21 @@ StellisLabs-Agents <br>
 - Comprehensive logging system
 
 ### 🎯 Scenario Generation
-
 - Automatically generates multiple "what-if" scenarios based on the input question
 - Limits the number of scenarios to prevent resource exhaustion
 - Validates and processes each scenario individually
 
 ### 📊 Evaluation System
-
 - Evaluates each scenario using LLM-powered analysis
 - Provides detailed insights and potential impacts
 - Combines evaluations for comprehensive recommendations
 
 ### 🛡️ Error Handling & Resilience
-
 - Implements retry mechanism for API calls
 - Handles JSON validation and processing errors
 - Includes timeout and cost threshold controls
 
 ### 💻 Rich Console Output
-
 - Progress indicators during scenario evaluation
 - Formatted text output with color coding
 - Markdown rendering support
@@ -59,20 +54,18 @@ StellisLabs-Agents <br>
 
 ### ⚠️ Error Handling
 The agent includes robust error handling:
-
-🔄 Retries failed API calls up to 3 times
-⏱️ Exponential backoff between retry attempts
-✅ JSON validation for API responses
-💰 Cost threshold monitoring
-⌛ Time limit enforcement
+- Retries failed API calls up to 3 times
+- Exponential backoff between retry attempts
+- JSON validation for API responses
+- Cost threshold monitoring
+- Time limit enforcement
 
 ### 📝 Logging
 All operations are logged both to the console and a logfile.txt file, including:
-
-📊 Scenario generation and evaluation progress
-⚠️ Error messages and warnings
-📋 Final recommendations
-⏱️ Execution time
+- Scenario generation and evaluation progress
+- Error messages and warnings
+- Final recommendations
+- Execution time
 
 ## 📄 License
 This project is licensed under the MIT License.
