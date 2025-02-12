@@ -5,23 +5,23 @@ A sophisticated Python-based agent that explores and evaluates "what-if" scenari
 StellisLabs-Agents/ <br> 
  ├── Yamini Manral/ <br>
  │ ├── counterfactual_agent/ <br>
- │ ├──── agent.py # Core Counterfactual Agent class implementation <br>
- │ ├──── main.py # Application entry point and runtime configuration <br>
- │ ├──── utils.py # Helper functions and utilities <br>
- │ ├──── scenario.py # Scenario generation and evaluation logic <br>
- │ ├──── llm_api.py # LLM API integration and response handling <br>
- │ ├──── logger.py # Logging setup and management <br>
- │ └──── config.py # Configuration constants and settings <br>
- ├── README.md <br>
+ │ │ 	├──── agent.py -------- Core Counterfactual Agent class implementation <br>
+ │ │ 	├──── main.py --------- Application entry point and runtime configuration <br>
+ │ │ 	├──── utils.py -------- Helper functions and utilities <br>
+ │ │ 	├──── scenario.py ----- Scenario generation and evaluation logic <br>
+ │ │ 	├──── llm_api.py ------ LLM API integration and response handling <br>
+ │ │ 	├──── logger.py ------- Logging setup and management <br>
+ │ │ 	└──── config.py ------- Configuration constants and settings <br>
+ │ ├── README.md <br>
 
 ## ✨ Key Features
-- Generate multiple "what-if" scenarios for a given question.
-- Evaluate each scenario using logical reasoning and probabilistic models.
-- Stream responses from LLM API with proper error handling.
-- Rich console output with formatted text and progress indicators.
-- Automatic retry mechanism for API calls.
-- Cost and time limit controls.
-- Comprehensive logging system.
+- Generate **multiple "what-if" scenarios** for a given question
+- Evaluate each scenario using logical reasoning and probabilistic models
+- Stream responses from LLM API with proper error handling
+- Rich console output with formatted text and progress indicators
+- Automatic retry mechanism for API calls
+- Cost and time limit controls
+- Comprehensive logging system
 
 ### 🎯 Scenario Generation
 - Automatically generates multiple "what-if" scenarios based on the input question
@@ -59,7 +59,10 @@ All operations are logged both to the console and a logfile.txt file, including:
 - Final recommendations
 - Execution time
 
+### Final Recom
+
 ## 📄 License
 This project is licensed under the MIT License.
 
 ## 👤 Author
+Yamini Manral (manral.y@northeastern.edu)
