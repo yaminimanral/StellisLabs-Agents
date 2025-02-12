@@ -31,7 +31,7 @@ counterfactual_agent/
 
 ### 1️⃣ Clone the Repository  
 ```sh
-git clone https://github.com/your-username/counterfactual-agent.git
+git clone https://github.com/yaminimanrale/counterfactual-agent.git
 cd counterfactual-agent
 ```
 
@@ -88,7 +88,6 @@ tenacity
 
 ## 💡 Future Enhancements  
 🔹 Support for **multiple LLM APIs**  
-🔹 Enhanced **data visualization for insights**  
 🔹 **Interactive UI** for scenario analysis  
 
 ---
