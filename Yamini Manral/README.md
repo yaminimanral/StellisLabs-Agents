@@ -1,68 +1,99 @@
-# 🤖 **Counterfactual Reasoning Agent**
-A sophisticated Python-based agent that explores and evaluates "what-if" scenarios using Large Language Models (LLMs). This tool helps generate, analyze, and provide recommendations for counterfactual scenarios in decision-making processes.
+# 🚀 Counterfactual Reasoning Agent  
 
-## 📁 **Repository Structure**
-StellisLabs-Agents/ <br> 
- ├── Yamini Manral/ <br>
- │ ├── counterfactual_agent/ <br>
- │ │ 	├──── agent.py -------- Core Counterfactual Agent class implementation <br>
- │ │ 	├──── main.py --------- Application entry point and runtime configuration <br>
- │ │ 	├──── utils.py -------- Helper functions and utilities <br>
- │ │ 	├──── scenario.py ----- Scenario generation and evaluation logic <br>
- │ │ 	├──── llm_api.py ------ LLM API integration and response handling <br>
- │ │ 	├──── logger.py ------- Logging setup and management <br>
- │ │ 	└──── config.py ------- Configuration constants and settings <br>
- │ ├── README.md <br>
+A powerful **Counterfactual Reasoning Agent** that explores **"what-if" scenarios** using **LLMs (Large Language Models)**. It generates alternative outcomes, evaluates their impact, and provides a final recommendation.  
 
-## ✨ Key Features
-- Generate **multiple "what-if" scenarios** for a given question
-- Evaluate each scenario using logical reasoning and probabilistic models
-- Stream responses from LLM API with proper error handling
-- Rich console output with formatted text and progress indicators
-- Automatic retry mechanism for API calls
-- Cost and time limit controls
-- Comprehensive logging system
+## 🎯 Features  
+✅ **Generates Counterfactual Scenarios** – Explore multiple "what-if" situations  
+✅ **Evaluates Alternative Outcomes** – Uses logical reasoning and probabilistic models  
+✅ **Provides Actionable Recommendations** – Summarizes key insights for decision-making  
+✅ **Robust Error Handling** – Retries API calls and ensures valid JSON responses  
+✅ **Modular & Extensible** – Clean architecture with separate files for each responsibility  
 
-### 🎯 Scenario Generation
-- Automatically generates multiple "what-if" scenarios based on the input question
-- Limits the number of scenarios to prevent resource exhaustion.
-- Validates and processes each scenario individually.
+---
 
-### 📊 Evaluation System
-- Evaluates each scenario using LLM-powered analysis
-- Provides detailed insights and potential impacts
-- Combines evaluations for comprehensive recommendations
+## 🏗️ Project Structure  
+```
+counterfactual_agent/
+│── main.py             # Main entry point to run the agent
+│── config.py           # Configuration settings
+│── agent.py            # Core class implementation
+│── logger.py           # Logging and markdown rendering utilities
+│── llm_api.py          # LLM API calling logic
+│── scenario.py         # Scenario generation and evaluation logic
+│── utils.py            # Utility functions like JSON validation
+│── requirements.txt    # Dependencies (optional)
+│── README.md           # Project documentation
+```
 
-### 🛡️ Error Handling & Resilience
-- Implements retry mechanism for API calls
-- Handles JSON validation and processing errors
-- Includes timeout and cost threshold controls
+---
 
-### 💻 Rich Console Output
-- Progress indicators during scenario evaluation
-- Formatted text output with color coding
-- Markdown rendering support
-- Comprehensive logging system
+## 🚀 Installation & Setup  
 
-### ⚠️ Error Handling
-The agent includes robust error handling:
-- Retries failed API calls up to 3 times
-- Exponential backoff between retry attempts
-- JSON validation for API responses
-- Cost threshold monitoring
-- Time limit enforcement
+### 1️⃣ Clone the Repository  
+```sh
+git clone https://github.com/your-username/counterfactual-agent.git
+cd counterfactual-agent
+```
 
-### 📝 Logging
-All operations are logged both to the console and a logfile.txt file, including:
-- Scenario generation and evaluation progress
-- Error messages and warnings
-- Final recommendations
-- Execution time
+### 2️⃣ Create a Virtual Environment (Recommended)  
+```sh
+python3 -m venv venv
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
+```
 
-### Final Recom
+### 3️⃣ Install Dependencies  
+```sh
+pip install -r requirements.txt
+```
 
-## 📄 License
-This project is licensed under the MIT License.
+---
 
-## 👤 Author
-Yamini Manral (manral.y@northeastern.edu)
+## 🎯 Usage  
+### Run the Counterfactual Agent  
+```sh
+python main.py
+```
+
+### Example Scenario:  
+If you set your question as:  
+👉 **"What if we increase the marketing budget by 20% for our new product launch?"**  
+
+🔍 The agent will:  
+1. Generate alternative "what-if" scenarios  
+2. Evaluate the possible outcomes  
+3. Provide a final recommendation  
+
+---
+
+## 🛠️ Configuration  
+Modify `config.py` to adjust settings:  
+```python
+COST_THRESHOLD = 15  # Max API calls  
+TIME_LIMIT = 1200  # Execution time limit (in seconds)  
+MAX_SCENARIOS = 3  # Number of counterfactuals to generate  
+LLM_API_URL = "http://localhost:11434/api/generate"  # API endpoint  
+```
+
+---
+
+## 📦 Dependencies  
+This project requires Python 3.8+ and the following libraries:  
+```
+requests
+rich
+tenacity
+```
+
+---
+
+## 💡 Future Enhancements  
+🔹 Support for **multiple LLM APIs**  
+🔹 Enhanced **data visualization for insights**  
+🔹 **Interactive UI** for scenario analysis  
+
+---
+
+## 📝 License  
+This project is licensed under the **MIT License**.  
+
+💬 **Feedback & Contributions Welcome!** 🎉  
