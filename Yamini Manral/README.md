@@ -35,11 +35,11 @@ Yamini Manral/
 ## System Design
 ### High Level Architecture
 
-![high level architecture](/counterfactual_agent/img/High-level%20Architecture.png)
+![high level architecture](./counterfactual_agent/img/High-level%20Architecture.png)
 
 ### Low-level System Design
 
-![medium level system design](/counterfactual_agent/img/medium-level.png)
+![medium level system design](./counterfactual_agent/img/medium-level.png)
 
 ---
 
@@ -106,14 +106,14 @@ tenacity
 ## 💡 Output 
 
 ### Example 1:
-![image 1](/counterfactual_agent/img/coffee1.png)
-![image 2](/counterfactual_agent/img/coffee2.png)
+![image 1](./counterfactual_agent/img/coffee1.png)
+![image 2](./counterfactual_agent/img/coffee2.png)
 
 ### Example 2:
-![image 3](/counterfactual_agent/img/healthcare.png)
+![image 3](./counterfactual_agent/img/healthcare.png)
 
 ### Example 3:
-![image 4](/counterfactual_agent/img/chocolate.png)
+![image 4](./counterfactual_agent/img/chocolate.png)
 
 
 ---
