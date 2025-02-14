@@ -7,23 +7,34 @@ A powerful **Counterfactual Reasoning Agent** that explores **"what-if" scenario
 ✅ **Evaluates Alternative Outcomes** – Uses logical reasoning and probabilistic models  
 ✅ **Provides Actionable Recommendations** – Summarizes key insights for decision-making  
 ✅ **Robust Error Handling** – Retries API calls and ensures valid JSON responses  
-✅ **Modular & Extensible** – Clean architecture with separate files for each responsibility  
+✅ **Modular & Extensible** – Clean architecture with separate files for different responsibilities  
 
 ---
 
 ## 🏗️ Project Structure  
 ```
 counterfactual_agent/
+│── img/                # contains images for the repo
+│── src/
+    │── config.py           # Configuration settings
+    │── agent.py            # Core class implementation
+    │── logger.py           # Logging and markdown rendering utilities
+    │── llm_api.py          # LLM API calling logic
+    │── scenario.py         # Scenario generation and evaluation logic
+    │── utils.py            # Utility functions like JSON validation
+    │── conversation.py     # Used for session creation
 │── main.py             # Main entry point to run the agent
-│── config.py           # Configuration settings
-│── agent.py            # Core class implementation
-│── logger.py           # Logging and markdown rendering utilities
-│── llm_api.py          # LLM API calling logic
-│── scenario.py         # Scenario generation and evaluation logic
-│── utils.py            # Utility functions like JSON validation
-│── requirements.txt    # Dependencies (optional)
+│── requirements.txt    # Dependencies 
 │── README.md           # Project documentation
 ```
+
+---
+
+## System Design
+
+![high level architecture](/img/High-level%20Architecture.png)
+
+![medium level system design](/img/medium-level.png)
 
 ---
 
@@ -62,7 +73,7 @@ If you set your question as:
 🔍 The agent will:  
 1. Generate alternative "what-if" scenarios  
 2. Evaluate the possible outcomes  
-3. Provide a final recommendation which includes key insights, actionable recommendation, metrics to monitor, additional recommendations and time taken to provide an output. 
+3. Provide a recommendation for each scenario 
 
 ---
 
@@ -88,10 +99,14 @@ tenacity
 ---
 
 ## 💡 Output 
-
+Example 1:
 ![image 1](./img/coffee1.png)
 ![image 2](./img/coffee2.png)
+
+Example 2:
 ![image 3](./img/healthcare.png)
+
+Example 3:
 ![image 4](./img/chocolate.png)
 
 
@@ -104,8 +119,7 @@ tenacity
 
 ## ✍🏻 Author
 🔸 Developed by **Yamini Manral**  
-🔸 For queries, contact: **manral.y@northeastern.edu**
-🔸 Future maintenance: **Yamini Manral (manral.y@northeastern.edu)**
+🔸 For queries, contact: **manral.y@northeastern.edu**  
  
 ---
 
