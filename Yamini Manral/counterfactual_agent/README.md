@@ -31,14 +31,15 @@ counterfactual_agent/
 
 ### 1️⃣ Clone the Repository  
 ```sh
-git clone https://github.com/yaminimanrale/counterfactual-agent.git
-cd counterfactual-agent
+git clone https://github.com/yaminimanral/StellisLabs-Agents.git
+cd Yamini Manral/counterfactual_agent
 ```
 
 ### 2️⃣ Create a Virtual Environment (Recommended)  
 ```sh
 python3 -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
+ # On Mac use: source venv/bin/activate 
+ # On Windows use: venv\Scripts\activate
 ```
 
 ### 3️⃣ Install Dependencies  
@@ -61,7 +62,7 @@ If you set your question as:
 🔍 The agent will:  
 1. Generate alternative "what-if" scenarios  
 2. Evaluate the possible outcomes  
-3. Provide a final recommendation  
+3. Provide a final recommendation which includes key insights, actionable recommendation, metrics to monitor, additional recommendations and time taken to provide an output. 
 
 ---
 
@@ -86,10 +87,26 @@ tenacity
 
 ---
 
-## 💡 Future Enhancements  
+## 💡 Output 
+
+![image 1](./img/coffee1.png)
+![image 2](./img/coffee2.png)
+![image 3](./img/healthcare.png)
+![image 4](./img/chocolate.png)
+
+
+---
+## 🔮 Future Enhancements  
 🔹 Support for **multiple LLM APIs**  
 🔹 **Interactive UI** for scenario analysis  
 
+---
+
+## ✍🏻 Author
+🔸 Developed by **Yamini Manral**  
+🔸 For queries, contact: **manral.y@northeastern.edu**
+🔸 Future maintenance: **Yamini Manral (manral.y@northeastern.edu)**
+ 
 ---
 
 ## 📝 License  
