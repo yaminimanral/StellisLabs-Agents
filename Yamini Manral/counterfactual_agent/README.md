@@ -32,9 +32,9 @@ counterfactual_agent/
 
 ## System Design
 
-![high level architecture](/img/High-level%20Architecture.png)
+![high level architecture](./img/High-level%20Architecture.png)
 
-![medium level system design](/img/medium-level.png)
+![medium level system design](./img/medium-level.png)
 
 ---
 
