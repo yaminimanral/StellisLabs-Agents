@@ -31,8 +31,11 @@ counterfactual_agent/
 ---
 
 ## System Design
+### High Level Architecture
 
 ![high level architecture](./img/High-level%20Architecture.png)
+
+### Low-level System Design
 
 ![medium level system design](./img/medium-level.png)
 
@@ -99,14 +102,15 @@ tenacity
 ---
 
 ## 💡 Output 
-Example 1:
+
+### Example 1:
 ![image 1](./img/coffee1.png)
 ![image 2](./img/coffee2.png)
 
-Example 2:
+### Example 2:
 ![image 3](./img/healthcare.png)
 
-Example 3:
+### Example 3:
 ![image 4](./img/chocolate.png)
 
 
